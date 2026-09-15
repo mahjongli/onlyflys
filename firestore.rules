@@ -1,0 +1,58 @@
+rules_version = '2';
+
+// Paste these into Firebase console → Firestore Database → Rules → Publish.
+//
+// Everyone is signed in anonymously. A fly may only write its own documents,
+// and only in the shapes below, so a bored visitor with a console open can't
+// stuff the database with junk.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Subscriber counters on the landing page.
+    // Anyone may read; writes must be a +1 on the `clicks` field only.
+    match /creators/{creatorId} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.resource.data.keys().hasOnly(['clicks'])
+                   && request.resource.data.clicks is int
+                   && request.resource.data.clicks
+                      <= (resource == null ? 1 : resource.data.clicks + 1);
+    }
+
+    match /rooms/{room} {
+      allow read: if true;
+
+      // Live fly state. You may only write the document whose id is your uid.
+      match /players/{playerId} {
+        allow read: if true;
+        allow write: if request.auth != null
+                     && request.auth.uid == playerId
+                     && request.resource.data.n is string
+                     && request.resource.data.n.size() < 60
+                     && request.resource.data.x is number
+                     && request.resource.data.y is number
+                     && request.resource.data.s is int
+                     && request.resource.data.s >= 0
+                     && request.resource.data.s < 100000
+                     && request.resource.data.e is list
+                     && request.resource.data.e.size() <= 40
+                     && request.resource.data.em is string
+                     && request.resource.data.em.size() < 40;
+        allow delete: if request.auth != null && request.auth.uid == playerId;
+      }
+
+      // Score records. Same rule: your uid, your document.
+      match /hiscores/{playerId} {
+        allow read: if true;
+        allow write: if request.auth != null
+                     && request.auth.uid == playerId
+                     && request.resource.data.s is int
+                     && request.resource.data.s >= 0
+                     && request.resource.data.s < 100000
+                     && request.resource.data.n is string
+                     && request.resource.data.n.size() < 60;
+      }
+    }
+  }
+}

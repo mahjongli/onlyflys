@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Windowsill — OnlyFlys</title>
+<meta name="description" content="A live multiplayer arena. Be a fly, eat crumbs, dodge the swatter.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪰</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/game.css">
+</head>
+<body class="game">
+
+<header class="bar">
+  <div class="shell">
+    <a class="wordmark" href="index.html">Only<em>Flys</em></a>
+    <nav><a href="index.html">Back to creators</a></nav>
+    <span class="pulse"><span class="dot"></span> <b id="liveCount">—</b> on the window</span>
+  </div>
+</header>
+
+<main class="stage">
+  <div class="window-frame">
+    <canvas id="arena" width="1000" height="640" aria-label="The window. Your fly chases crumbs and dodges a swatter."></canvas>
+
+    <div class="hud" aria-live="off">
+      <span class="score" id="hudScore">0</span>
+      <span class="wave" id="hudWave">wave 1 · next swat in 14s</span>
+    </div>
+
+    <div class="alarm" id="alarm">SPLAT</div>
+
+    <div class="joiner" id="joiner">
+      <div>
+        <h2>The Windowsill</h2>
+        <p>Everyone with this page open is on the same window. Steer with your cursor or finger. Eat crumbs. When a shadow appears, move.</p>
+        <div class="namebox" id="nameBox">…</div>
+        <div class="row">
+          <button class="btn" id="joinBtn" type="button">Land on the window</button>
+          <button class="btn small ghost" id="rerollBtn" type="button">Different name</button>
+        </div>
+        <p style="margin-top:20px" id="joinNote"></p>
+      </div>
+    </div>
+  </div>
+
+  <aside class="panel">
+    <div class="card">
+      <h3>On the window now</h3>
+      <ol class="board" id="board"><li class="empty">Nobody yet. Be the first fly.</li></ol>
+    </div>
+
+    <div class="card">
+      <h3>Say something</h3>
+      <div class="emotes">
+        <button type="button" data-emote="bzzzzz">bzzzzz</button>
+        <button type="button" data-emote="that's mine">that's mine</button>
+        <button type="button" data-emote="incoming!">incoming!</button>
+        <button type="button" data-emote="🍑">🍑</button>
+        <button type="button" data-emote="ow">ow</button>
+      </div>
+      <p class="note" style="margin-top:10px">Fixed phrases only. Flies have a small vocabulary.</p>
+    </div>
+
+    <div class="card">
+      <h3>Best today</h3>
+      <ol class="board" id="hiscores"><li class="empty">No records yet.</li></ol>
+    </div>
+
+    <div class="status" id="status"><span class="lamp"></span><span id="statusText">Connecting…</span></div>
+  </aside>
+</main>
+
+<script type="module" src="js/game.js"></script>
+</body>
+</html>

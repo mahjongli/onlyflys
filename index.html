@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OnlyFlys — exclusive content from the bin</title>
+<meta name="description" content="A parody subscription platform for houseflies. Unfiltered content from windowsills, compost heaps and the rim of your glass. Plus a multiplayer crumb-grabbing game.">
+<meta property="og:title" content="OnlyFlys">
+<meta property="og:description" content="Exclusive content from the world's least hygienic creators. Paid in crumbs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪰</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="shell">
+    <a class="wordmark" href="index.html">Only<em>Flys</em></a>
+    <nav>
+      <a href="#creators">Creators</a>
+      <a href="#tiers">Pricing</a>
+      <a href="game.html">The Windowsill</a>
+    </nav>
+    <span class="pulse"><span class="dot"></span> <b id="liveCount">—</b> flies on the window</span>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <canvas id="swarm" aria-hidden="true"></canvas>
+    <div class="shell">
+      <h1>Only<span>Flys</span></h1>
+      <p class="lede">The subscription platform for houseflies. Uncut, unwashed, unhygienic content straight from the creators who land on your sandwich.</p>
+      <p class="fineprint">Every creator keeps 100% of earnings. Earnings are crumbs. We have no way to convert crumbs into money and nobody has asked.</p>
+      <div class="hero-actions">
+        <a class="btn" href="game.html">Play The Windowsill</a>
+        <a class="btn ghost" href="#creators">Browse creators</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="creators">
+    <div class="shell">
+      <h2>This week on the strip</h2>
+      <p class="intro">Eight creators, all six-legged, all posting daily. Subscriber counts below are real and shared by everyone who visits this page.</p>
+      <div class="strips" id="creatorGrid"></div>
+    </div>
+  </section>
+
+  <section class="band dark" id="tiers">
+    <div class="shell">
+      <h2>Pick a tier</h2>
+      <p class="intro">Billed monthly in crumbs. Cancel any time by closing the window, which is also how you cancel a fly.</p>
+      <div class="tiers">
+        <div class="tier">
+          <h3>Free</h3>
+          <div class="price">0</div>
+          <div class="per">crumbs a month</div>
+          <ul>
+            <li>One blurry photo of a lampshade</li>
+            <li>Read-only access to the buzzing</li>
+            <li>Ads, and they are bad</li>
+          </ul>
+        </div>
+        <div class="tier pick">
+          <h3>Crumb</h3>
+          <div class="price">3</div>
+          <div class="per">crumbs a month — most popular</div>
+          <ul>
+            <li>Full posts from every creator</li>
+            <li>Weekly compost livestream</li>
+            <li>Your name in the swarm</li>
+            <li>Priority landing on the fruit bowl</li>
+          </ul>
+        </div>
+        <div class="tier">
+          <h3>Whole bin</h3>
+          <div class="price">40</div>
+          <div class="per">crumbs a month</div>
+          <ul>
+            <li>Everything in Crumb</li>
+            <li>Direct messages (they cannot read)</li>
+            <li>One custom buzz, recorded for you</li>
+            <li>Emotional support during swatting season</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band olive">
+    <div class="shell">
+      <h2>What subscribers say</h2>
+      <div class="quotes">
+        <div class="quote">
+          <blockquote>“I came for the compost tour. I stayed because I was stuck to the paper.”</blockquote>
+          <cite>Gerald, subscriber since Tuesday</cite>
+        </div>
+        <div class="quote">
+          <blockquote>“Finally, content made by someone who has genuinely been inside a bin.”</blockquote>
+          <cite>A moth, technically not our audience</cite>
+        </div>
+        <div class="quote">
+          <blockquote>“Cancelled Netflix. Watched a fly rub its hands together for 40 minutes. No regrets.”</blockquote>
+          <cite>Priya, whole bin tier</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band dark">
+    <div class="shell teaser">
+      <div>
+        <h2>The Windowsill</h2>
+        <p class="intro">A live multiplayer arena. You are a fly on a kitchen window with everyone else who has the page open. There are crumbs. There is also a hand.</p>
+        <ul class="rules">
+          <li><span class="n">1</span><b>Steer with your cursor or finger</b>Your fly follows, badly, because it is a fly.</li>
+          <li><span class="n">2</span><b>Eat crumbs before anyone else does</b>Gold ones are worth five. Everyone sees the same crumbs at the same time.</li>
+          <li><span class="n">3</span><b>Watch for the shadow</b>A swatter comes down every wave. Being under it costs you half your score.</li>
+        </ul>
+        <p style="margin-top:28px"><a class="btn" href="game.html">Join the window</a></p>
+      </div>
+      <div class="pane" aria-hidden="true">
+        <span class="bug b1">🪰</span><span class="bug b2">🪰</span><span class="bug b3">🪰</span>
+        <span class="crumb c1"></span><span class="crumb c2"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <h2>Questions we get</h2>
+      <div class="faq">
+        <details>
+          <summary>Is this affiliated with that other site?</summary>
+          <p>No. This is a joke about flies, made by someone who thought of the name first and the website second. No affiliation with, endorsement by, or resemblance to any real subscription platform is intended.</p>
+        </details>
+        <details>
+          <summary>Is there any adult content?</summary>
+          <p>There is a fly eating a peach it found behind a radiator. That is as far as it goes. Everything here is safe for work, assuming your work is fine with flies.</p>
+        </details>
+        <details>
+          <summary>How do creators get paid?</summary>
+          <p>Crumbs. Deposited on the sill. We have been told this is not a payment processor and we are appealing.</p>
+        </details>
+        <details>
+          <summary>Can I become a creator?</summary>
+          <p>Applications are open to anyone with compound eyes, four thousand of them, and a willingness to walk on things before you eat them. Human applications are automatically forwarded to the bin, where a creator will review them.</p>
+        </details>
+        <details>
+          <summary>What's the average lifespan of a creator?</summary>
+          <p>28 days. Please be kind in the comments, they are working on a deadline.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell">
+    <div>
+      <strong>OnlyFlys</strong>
+      <p>Parody. Satire. Insects. Not a real subscription service and not affiliated with any real one.<br>No flies were paid, because they were paid in crumbs.</p>
+    </div>
+    <div>
+      <p><a href="game.html">The Windowsill</a><br>
+      <a href="#creators">Creators</a><br>
+      <a href="#tiers">Pricing</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- The ad. It is meant to look like this. -->
+<aside class="adbar" id="adbar">
+  <button class="open" id="adOpen">🔥🔥 HOT SINGLE FLYS IN YOUR AREA — 3 FLYS WANT 2 MEET U !!! 🔥🔥</button>
+  <button class="x" id="adClose" aria-label="Close advert">✕</button>
+</aside>
+
+<div class="modal" id="adModal" hidden role="dialog" aria-modal="true" aria-labelledby="adTitle">
+  <div class="modal-card">
+    <button class="close-x" id="modalClose" aria-label="Close">✕</button>
+    <h2 id="adTitle">HOT SINGLE FLYS IN YOUR AREA!!</h2>
+    <p class="sub">Scanning your kitchen… 3 matches found. They are already inside.</p>
+    <div class="radar" aria-hidden="true">
+      <div class="sweep"></div>
+      <span class="blip" style="left:32%; top:38%"></span>
+      <span class="blip" style="left:66%; top:56%"></span>
+      <span class="blip" style="left:48%; top:72%"></span>
+    </div>
+
+    <div class="match"><div class="face">🪰</div><div><div class="who">Gnatalie, 11 days</div><div class="dist">0.0004 miles away · currently on your sandwich</div></div></div>
+    <div class="match"><div class="face">🪰</div><div><div class="who">Horace, 6 days</div><div class="dist">0.0000 miles away · on the back of your neck</div></div></div>
+    <div class="match"><div class="face">🪰</div><div><div class="who">Bluebottle Betty, 19 days</div><div class="dist">1 window away · headbutting the glass for you</div></div></div>
+
+    <div class="cta">
+      <a class="btn" href="game.html">Meet them on the window</a>
+      <button class="btn small" id="modalNo" type="button">No thank you</button>
+    </div>
+    <p class="legal">Matches are fictional. Flies are real and are, statistically, nearby. This advert does nothing.</p>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

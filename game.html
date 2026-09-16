@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Windowsill — OnlyFlys</title>
-<meta name="description" content="A live multiplayer arena. Be a fly, eat crumbs, dodge the swatter.">
+<meta name="description" content="A peer-to-peer multiplayer arena. Grab crumbs, bank them at the jam jar, dive-bomb anyone carrying more than you.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪰</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,19 +24,28 @@
 
 <main class="stage">
   <div class="window-frame">
-    <canvas id="arena" width="1000" height="640" aria-label="The window. Your fly chases crumbs and dodges a swatter."></canvas>
+    <canvas id="arena" width="1000" height="640" aria-label="The window. Your fly collects crumbs, banks them at the jam jar and dodges a swatter."></canvas>
 
-    <div class="hud" aria-live="off">
-      <span class="score" id="hudScore">0</span>
-      <span class="wave" id="hudWave">wave 1 · next swat in 14s</span>
+    <div class="hud">
+      <div class="readouts">
+        <span class="stat"><b id="hudScore">0</b><i>banked</i></span>
+        <span class="stat"><b id="hudWallet">0</b><i>to spend</i></span>
+        <span class="stat carry"><b id="hudCarry">0</b><i>carrying</i></span>
+      </div>
+      <span class="wave" id="hudWave">swat in 14s</span>
     </div>
 
+    <button class="dive" id="diveBtn" type="button">
+      <span>Dive</span><span class="cd"><i id="diveFill"></i></span>
+    </button>
+
+    <div class="toast" id="toast"></div>
     <div class="alarm" id="alarm">SPLAT</div>
 
     <div class="joiner" id="joiner">
       <div>
         <h2>The Windowsill</h2>
-        <p>Everyone with this page open is on the same window. Steer with your cursor or finger. Eat crumbs. When a shadow appears, move.</p>
+        <p>Steer with your cursor or finger. Crumbs go in your gut, and a full gut is slow, stealable and very visible to a swatter. Get them to the jam jar to keep them.</p>
         <div class="namebox" id="nameBox">…</div>
         <div class="row">
           <button class="btn" id="joinBtn" type="button">Land on the window</button>
@@ -54,6 +63,23 @@
     </div>
 
     <div class="card">
+      <h3>Spend your crumbs</h3>
+      <div id="shop"></div>
+      <p class="note">Spending lowers what you can spend, never your banked score.</p>
+    </div>
+
+    <div class="card">
+      <h3>How to play</h3>
+      <ul class="howto">
+        <li><b>Move</b> cursor, finger, or WASD</li>
+        <li><b>Dive</b> space, the Dive button, or double-click</li>
+        <li><b>Bank</b> fly into the jam jar</li>
+        <li><b>Rob</b> dive into a loaded fly and they drop most of it</li>
+        <li><b>Survive</b> the swatter empties your gut, not your bank</li>
+      </ul>
+    </div>
+
+    <div class="card">
       <h3>Say something</h3>
       <div class="emotes">
         <button type="button" data-emote="bzzzzz">bzzzzz</button>
@@ -62,11 +88,10 @@
         <button type="button" data-emote="🍑">🍑</button>
         <button type="button" data-emote="ow">ow</button>
       </div>
-      <p class="note" style="margin-top:10px">Fixed phrases only. Flies have a small vocabulary.</p>
     </div>
 
     <div class="card">
-      <h3>Best today</h3>
+      <h3>Best ever</h3>
       <ol class="board" id="hiscores"><li class="empty">No records yet.</li></ol>
     </div>
 

@@ -219,8 +219,10 @@ ready.then(({ demo }) => {
   if (demo) { el.textContent = "0"; return; }
 
   const { collection, onSnapshot } = fs;
-  onSnapshot(collection(db(), "rooms", ROOM, "players"), (snap) => {
-    const cutoff = Date.now() - 20000;
+  onSnapshot(collection(db(), "rooms", ROOM, "peers"), (snap) => {
+    // Presence docs are refreshed every 5 minutes, so anything older
+    // than about twice that is a browser that never said goodbye.
+    const cutoff = Date.now() - 11 * 60000;
     let n = 0;
     snap.forEach((d) => { if ((d.data().t || 0) > cutoff) n++; });
     el.textContent = String(n);
